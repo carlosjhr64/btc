@@ -17,5 +17,5 @@ puts bk.key.to_pem
 
 h2. Credits
 
- - lian / bitcoin-ruby := Good Ruby source for Bitcoin.  https://github.com/lian/bitcoin-ruby/blob/a9a20a1146c68e2377b4b4f500ff694a7946fcec/lib/bitcoin.rb
- - How to create Bitcoin Address := https://en.bitcoin.it/wiki/Address
+- lian / bitcoin-ruby := Good Ruby source for Bitcoin.  https://github.com/lian/bitcoin-ruby/blob/a9a20a1146c68e2377b4b4f500ff694a7946fcec/lib/bitcoin.rb
+- How to create Bitcoin Address := https://en.bitcoin.it/wiki/Address
