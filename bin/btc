@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'btc'
 
-bc = BTC::Key.new.generate_key
-puts "New BTC Address:\t#{bc.address}"
-puts "Private Key:\t\t#{bc.prvkey}"
-puts bc.key.to_pem
+bk = BTC::Key.new.generate_key
+puts "New BTC Address:\t#{bk.address}"
+puts "Private Key:\t\t#{bk.prvkey}"
+puts bk.key.to_pem

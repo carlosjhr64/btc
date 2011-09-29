@@ -1,0 +1,24 @@
+h1. BTC
+
+BTC is a Ruby Library from Bitcoin.
+This is version 0.0.0.
+Currently, it only creates new bitcoin addresses, but
+should be adding features over time.
+
+h2. Synopsis
+
+bc. # require 'rubygems'
+# gem 'btc', '~> 0.0'
+require 'btc'
+bk = BTC::Key.new.generate_key
+puts "New BTC Address:\t#{bk.address}"
+puts "Private Key:\t\t#{bk.prvkey}"
+puts bk.key.to_pem
+
+h2. Credits
+
+ - lian / bitcoin-ruby :=
+	Good Ruby source for Bitcoin.
+	https://github.com/lian/bitcoin-ruby/blob/a9a20a1146c68e2377b4b4f500ff694a7946fcec/lib/bitcoin.rb
+
+ - How to create Bitcoin Address := https://en.bitcoin.it/wiki/Address
