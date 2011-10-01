@@ -7,7 +7,7 @@ Currently, it can create new bitcoin addresses and query http://blockexplorer.co
 h2. Synopsis
 
 bc. # require 'rubygems'
-# gem 'btc', '~> 0.0'
+# gem 'btc', '~> 0.1'
 require 'btc'
 bk = BTC::Key.new.generate_key
 puts "New BTC Address:\t#{bk.address}"
