@@ -1,9 +1,8 @@
 h1. BTC
 
 BTC is a Ruby Library for Bitcoin.
-This is version 0.0.0.
-Currently, it only creates new bitcoin addresses, but
-should be adding features over time.
+This is version 0.1.0.
+Currently, it can create new bitcoin addresses and query http://blockexplorer.com.
 
 h2. Synopsis
 
@@ -14,8 +13,15 @@ bk = BTC::Key.new.generate_key
 puts "New BTC Address:\t#{bk.address}"
 puts "Private Key:\t\t#{bk.prvkey}"
 puts bk.key.to_pem
+bx = BTC::BlockExplorer.new
+if bx.checkaddress('13UQVr31P5M9A1TUhXTTcCTFrNjzBfMjuF')
+  puts bx.addressbalance('13UQVr31P5M9A1TUhXTTcCTFrNjzBfMjuF')
+else
+  puts bx.message
+end
 
 h2. Credits
 
 - ["lian / bitcoin-ruby":https://github.com/lian/bitcoin-ruby] := Good Ruby source for Bitcoin.  
 - ["How to create Bitcoin Address":https://en.bitcoin.it/wiki/Address] := The Bitcoin Wiki page on...
+- ["Bitcoin Block Explorer":https://en.bitcoin.it/wiki/Bitcoin_Block_Explorer] := The Bitcoin Wiki page on...
