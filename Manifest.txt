@@ -1,0 +1,9 @@
+README.rdoc
+bin/bitcoin-tool
+bin/btc
+bin/check_bitcoin_address
+lib/btc.rb
+lib/btc/btc.rb
+lib/btc/version.rb
+project.gemspec
+test/test_btc.rb
