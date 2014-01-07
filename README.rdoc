@@ -1,30 +1,92 @@
-h1. BTC
+= BTC
 
-BTC is a Ruby Library for Bitcoin.
-This is version 0.1.0.
-Currently, it can create new bitcoin addresses and query http://blockexplorer.com.
+github :: https://www.github.com/carlosjhr64/btc
+rubygems :: https://rubygems.org/gems/btc
 
-h2. Synopsis
+== DESCRIPTION:
 
-bc. # require 'rubygems'
-# gem 'btc', '~> 0.1'
-require 'btc'
-bk = BTC::Key.new.generate_key
-puts "New BTC Address:\t#{bk.address}"
-puts "Private Key:\t\t#{bk.prvkey}"
-puts bk.key.to_pem
-bx = BTC::BlockExplorer.new
-if bx.checkaddress('13UQVr31P5M9A1TUhXTTcCTFrNjzBfMjuF')
-  puts bx.addressbalance('13UQVr31P5M9A1TUhXTTcCTFrNjzBfMjuF')
-else
-  puts bx.message
-end
+BTC is a Ruby Library to create Bitcoin private/public key pairs.
 
-h2. Credits
+It subclasses OpenSSL::PKey::EC, and adds attributes related to Bitcoin.
 
-- ["lian / bitcoin-ruby":https://github.com/lian/bitcoin-ruby] := Good Ruby source for Bitcoin.  
-- ["How to create Bitcoin Address":https://en.bitcoin.it/wiki/Address] := The Bitcoin Wiki page on...
-- ["Bitcoin Block Explorer":https://en.bitcoin.it/wiki/Bitcoin_Block_Explorer] := The Bitcoin Wiki page on...
+== FEATURES:
 
-https://github.com/matja/bitcoin-tool (version as of Mon Jan 6, 2014)
-http://rosettacode.org/wiki/Bitcoin/address_validation (version as of Mon Jan 6, 2014)
+* Easy Bitcoin address and private key.
+* Easy Bitcoin address from the hexadecimal private key.
+
+== SYNOPSIS:
+
+   coin = BTC::Btc.coin
+   address = coin.address
+   hexadecimal_private_key = coin.prvkey
+   # From a given private key...
+   same_coin = BTC::Btc.coin(hexadecimal_private_key)
+
+== BUT WAIT THERE'S MORE!:
+
+Besides the methods above and those available to OpenSSL::PKey::EC, you also have:
+
+   coin.pubkey # hexadecimal public_key
+   coin.hash160
+   coin.checksum
+   coin.private_key!(hexadecimal_private_key) # updates entirely
+
+The class method BTC::Btc.coin is just a wrap of:
+
+   # Mind that this is a OpenSSL::PKey::EC subclass
+   coin = BTC::Btc.new('secp256k1')
+   coin.generate_key
+
+And BTC::Btc.coin(hexprvkey) is just a wrap of:
+
+   coin = BTC::Btc.new('secp256k1')
+   coin.private_key!(prvkey)
+
+Where private_key! is:
+
+    self.private_key = prvkey.to_i(16)
+    self.public_key  = self.group.generator.mul(self.private_key)
+
+BTC::Btc overloads #private_key= and #public_key= to update the additional Bitcoin attributes.
+
+== INSTALL:
+
+   $ sudo gem install btc
+
+== REQUIREMENTS:
+
+BTC only uses the Standard Libraries.
+For testing, I used:
+
+* bitcoin-tool[https://github.com/matja/bitcoin-tool] by matja (2014/01/06)
+* address_validation[http://rosettacode.org/wiki/Bitcoin/address_validation] (2014/01/06)
+
+== Credits
+
+lian / bitcoin-ruby[https://github.com/lian/bitcoin-ruby] :: Good Ruby source for Bitcoin.
+How to create Bitcoin Address[https://en.bitcoin.it/wiki/Address] :: The Bitcoin Wiki page on...
+
+== LICENCE:
+
+(The MIT License)
+
+Copyright (c) 2014 CarlosJHR64
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
