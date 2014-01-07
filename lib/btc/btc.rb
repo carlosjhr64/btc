@@ -66,7 +66,7 @@ class Btc < OpenSSL::PKey::EC
   def initialize(seed='secp256k1', *args)
     super(seed, *args)
     (self.private_key?)? initprv : nilprv
-    (self.public_key?)? initpub : nilpub
+    (self.public_key?)?  initpub : nilpub
   end
 
   def generate_key
