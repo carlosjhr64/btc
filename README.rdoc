@@ -25,3 +25,6 @@ h2. Credits
 - ["lian / bitcoin-ruby":https://github.com/lian/bitcoin-ruby] := Good Ruby source for Bitcoin.  
 - ["How to create Bitcoin Address":https://en.bitcoin.it/wiki/Address] := The Bitcoin Wiki page on...
 - ["Bitcoin Block Explorer":https://en.bitcoin.it/wiki/Bitcoin_Block_Explorer] := The Bitcoin Wiki page on...
+
+https://github.com/matja/bitcoin-tool (version as of Mon Jan 6, 2014)
+http://rosettacode.org/wiki/Bitcoin/address_validation (version as of Mon Jan 6, 2014)

@@ -61,7 +61,7 @@ class TestBtc < Test::Unit::TestCase
     assert_equal(address1, address3)
     assert_equal(prvkey1,  prvkey3)
 
-    # And since I have matja's bitcoin-tools, confirm prvkey/address pair:
+    # And since I have matja's bitcoin-tool, confirm prvkey/address pair:
     hexaddress = <<CMD
 ./bin/bitcoin-tool                       \
   --input-type             private-key   \
