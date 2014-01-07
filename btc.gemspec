@@ -26,17 +26,19 @@ SUMMARY
 
   s.require_paths = ["lib"]
   s.files = %w(
+Manifest.txt
 README.rdoc
+TODO.txt
 bin/bitcoin-tool
-bin/btc
 bin/check_bitcoin_address
+btc.gemspec
 lib/btc.rb
 lib/btc/btc.rb
 lib/btc/version.rb
 project.gemspec
 test/test_btc.rb
   )
-  s.executables << 'btc'
+
   s.add_development_dependency 'test-unit', '~> 2.5', '>= 2.5.5'
   s.requirements << 'ruby: ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-linux]'
   s.requirements << 'system in development: linux/bash'
