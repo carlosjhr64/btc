@@ -2,10 +2,9 @@
 require 'digest/sha2'
 require 'digest/rmd160'
 require 'openssl'
-
-# This gem
-require 'btc/version'
-require 'btc/btc'
-
+module BTC
+  VERSION = '1.0.200126'
+  require 'btc/btc'
+end
 # Requires:
 #`ruby`

@@ -6,12 +6,11 @@
 #    puts "New BTC Address: #{random_coin.address}"
 #    puts "Private Key: #{random_coin.prvkey}"
 #    same_coin = BTC::Btc.coin(random_coin.prvkey)
-
 module BTC
 class Btc < OpenSSL::PKey::EC
-  attr_reader :prvkey, :pubkey, :hash160, :checksum, :address
-
   BASE58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+
+  attr_reader :prvkey, :pubkey, :hash160, :checksum, :address
   def self.number_to_base(number,alpha=BASE58)
     string, base = '', alpha.size
     while(number >= base)
@@ -92,6 +91,5 @@ class Btc < OpenSSL::PKey::EC
     super(kb)
     initpub
   end
-
 end
 end
